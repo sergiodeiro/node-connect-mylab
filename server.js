@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 //const cors = require('cors')
 
-//Iniciando o App
+//Init App
 const app = express();
 
-//Iniciando o DB
+//Init DB
 const server = require('http').Server(app)
 //const io = require('socket.io')(server)
 
@@ -26,3 +26,18 @@ const Product = mongoose.model('Product');
 app.use('/api', require('./src/routes'));
 
 app.listen(3001);
+
+
+
+// OR 
+
+
+const MongoClient = require('mongodb').MongoClient;
+
+const url = 'mongodb://<dbuser>:<dbpassword>@ds213832.mlab.com:13832/<nameBank>';
+MongoClient.connect(url, (err,db) => {
+    
+if(!err){
+    console.log('Conectado');
+}  
+}); 
